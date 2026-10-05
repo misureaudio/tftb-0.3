@@ -1,0 +1,34 @@
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+ 
+% The reassignment of the spectrogram
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%   The reassignment method, originally introduced in an attempt to
+% improve the spectrogram, moves each value of the spectrogram computed 
+% at any point (t,nu) to another point which is the center of gravity 
+% of the signal energy distribution around (t,nu). 
+%   Let us have a look at the readability improvement obtained by the 
+% reassigned spectrogram on an example of multicomponent signal ; the 
+% result is compared to the "ideal" representation based on the knowledge 
+% of the instantaneous frequency law of each component :
+
+N=128; [sig1 ifl1]=fmsin(N,0.15,0.45,100,1,0.4,-1);
+[sig2 ifl2]=fmhyp(N,[1 .5],[32 0.05]);
+sig=sig1+sig2;
+figure(1); tfrideal([ifl1 ifl2]);
+figure(2); tfrrsp(sig,1:128,256,tftb_window(27,'hanning'),1);
+Spectrogram
+10 20 30 40 50 60 70 80 90 100 % complete in 0.015625 seconds.
+
+reassignment: 
+10 20 30 40 50 60 70 80 90 100 % complete in 0.015625 seconds.
+
+ERROR: MATLAB error Exit Status: 0x0000008f
+tfdemo6 status=124

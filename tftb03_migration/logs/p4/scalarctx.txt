@@ -1,0 +1,37 @@
+ambifunb.m	mfiles	86	Unexpected use of 'octave' in a scalar context.
+ambifuwb.m	mfiles	178	Unexpected use of 'octave' in a scalar context.
+fmt.m	mfiles	77	Unexpected use of '[' in a scalar context.
+fmt.m	mfiles	78	Unexpected use of '[' in a scalar context.
+fmt.m	mfiles	100	Unexpected use of '[' in a scalar context.
+scale.m	mfiles	82	Unexpected use of '[' in a scalar context.
+scale.m	mfiles	83	Unexpected use of '[' in a scalar context.
+scale.m	mfiles	104	Unexpected use of '[' in a scalar context.
+tfrqview.m	mfiles	518	Unexpected use of 'PC' in a scalar context.
+tfrqview.m	mfiles	609	Unexpected use of 'PC' in a scalar context.
+tfrqview2.m	mfiles	153	Unexpected use of 'PC' in a scalar context.
+tfrqview2.m	mfiles	232	Unexpected use of 'PC' in a scalar context.
+tfrqview2.m	mfiles	491	Unexpected use of 'PC' in a scalar context.
+tfrqview2.m	mfiles	565	Unexpected use of 'PC' in a scalar context.
+tfrqview2.m	mfiles	582	Unexpected use of 'PC' in a scalar context.
+tfrqview2.m	mfiles	597	Unexpected use of 'PC' in a scalar context.
+tfrsave.m	mfiles	66	Unexpected use of '[' in a scalar context.
+tfrspbk.m	mfiles	140	Unexpected use of '[' in a scalar context.
+tfrspbk.m	mfiles	141	Unexpected use of '[' in a scalar context.
+tfrspbk.m	mfiles	173	Unexpected use of '[' in a scalar context.
+tfrview.m	mfiles	158	Unexpected use of 'PC' in a scalar context.
+tfrview.m	mfiles	164	Unexpected use of 'PC' in a scalar context.
+tfrview.m	mfiles	169	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	192	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	218	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	223	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	245	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	269	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	274	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	375	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	380	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	387	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	392	Unexpected use of 'PC' in a scalar context.
+tfrview2.m	mfiles	401	Unexpected use of 'PC' in a scalar context.
+      22  Unexpected use of 'PC' in a scalar context.			
+      10  Unexpected use of '[' in a scalar context.			
+       2  Unexpected use of 'octave' in a scalar context.			

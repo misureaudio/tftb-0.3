@@ -1,0 +1,14 @@
+tfrview.m	mfiles	151	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	216	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	271	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	322	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	572	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	574	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	578	Variable might be set by a nonlogical operator.
+tfrview.m	mfiles	580	Variable might be set by a nonlogical operator.
+tfrview2.m	mfiles	216	Variable might be set by a nonlogical operator.
+tfrview2.m	mfiles	267	Variable might be set by a nonlogical operator.
+tfrview2.m	mfiles	293	Variable might be set by a nonlogical operator.
+tfrview2.m	mfiles	583	Variable might be set by a nonlogical operator.
+tfrview2.m	mfiles	585	Variable might be set by a nonlogical operator.
+      13  Variable might be set by a nonlogical operator.			

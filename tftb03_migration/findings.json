@@ -1,0 +1,154 @@
+{
+  "target": "tftb-0.2 -> tftb-0.3 (MATLAB R2024a compatible)",
+  "tested_on": "MATLAB R2024a Update 7 (24.1.0.2837808), matlab -batch, headless",
+  "original_tree": "D:/TOOLBOX/tftb-0.2 (READ-ONLY, untouched)",
+  "worktree": "D:/Source/hermes-dir/tftb03_migration",
+  "test_layers": {
+    "static_removed_fn_scan": "wavread/wavwrite/mp3read/plotyy/str2mat/findstr/h5info/iddata -> NONE present",
+    "checkcode_all_files": "240 files, 4987 MLint issues, 0 real parse errors (1 file-fatal continue-as-var caught as parse warning)",
+    "unit_tests": "96 run (excl testall aggregator + layoutst GUI), 85 pass / 11 fail",
+    "demos_headless": "7 run with pause/input/menu shims, 1 pass (tfdemo7) / 6 fail (all via tfrview version bug)",
+    "multi_seed_probe": "20 seeds on the 8 numeric failures -> separates RNG-flaky vs systematic"
+  },
+  "incompatibilities": [
+    {
+      "id": "A1",
+      "class": "FATAL (R2020a+ two-digit major)",
+      "title": "Version detection: str2num(version(1)) mis-parses two-digit major version",
+      "mechanism": "version='24.1.0.2837808 (R2024a) Update 7'; version(1)='2'; str2num('2')=2. Code branches on ==4 (R4) and >=5/>5 (R5+). 2 matches neither -> error('unsupported matlab version') or wrong branch.",
+      "impact": "tfrview.m hard-errors -> breaks ALL TFR display -> root cause of ALL 6 demo failures (tfdemo1-6). Others silently take the R4 (legacy) or skip branches.",
+      "sites": [
+        {"file": "mfiles/tfrview.m", "lines": [59, 61, 63, 66], "severity": "FATAL"},
+        {"file": "mfiles/noisecu.m", "lines": [36, 38, 40, 41], "severity": "latent (no error now; rand('uniform') skipped)"},
+        {"file": "mfiles/anaask.m", "lines": [51, 52], "severity": "latent"},
+        {"file": "mfiles/anabpsk.m", "lines": [51, 52], "severity": "latent"},
+        {"file": "mfiles/anafsk.m", "lines": [51, 52], "severity": "latent"},
+        {"file": "mfiles/anaqpsk.m", "lines": [51, 52], "severity": "latent"},
+        {"file": "mfiles/atoms.m", "lines": [53, 54], "severity": "inert (commented)"},
+        {"file": "mfiles/tfrqview.m", "lines": [53, 246], "severity": "latent (skips colmap menu branch)"},
+        {"file": "mfiles/tfrview2.m", "lines": [359, 360], "severity": "latent (vnum(1)=='5' false -> wrong contour arg order)"}
+      ],
+      "fix": "Replace fragile str2num(version(1)) with str2double(version) (e.g. 24.1) and make the R4-vs-R5+ branch always take the modern (>=5) path, since R4 is obsolete. Remove the now-dead R4 branches."
+    },
+    {
+      "id": "A2",
+      "class": "FATAL (language-level regression)",
+      "title": "Reserved keyword 'continue' used as an assignable variable",
+      "mechanism": "continue=0 / continue=1 uses the reserved word 'continue' as an LHS. R2024a raises MATLAB:m_invalid_lhs_of_assignment ('Incorrect use of = operator'). The whole file fails to parse.",
+      "impact": "tfrqview2.m is completely unloadable (exist=2 but call -> parse error at line 239). Not called by any demo, but a documented toolbox function.",
+      "sites": [
+        {"file": "mfiles/tfrqview2.m", "lines": [239, 241, 250], "severity": "FATAL (file-fatal)"}
+      ],
+      "fix": "Rename the variable (e.g. 'continue' -> 'cont') at all 3 sites."
+    },
+    {
+      "id": "A3",
+      "class": "FATAL (language-level regression, odd-N only)",
+      "title": "Non-integer array size: MATLAB:NonIntegerInput",
+      "mechanism": "R2024a enforces integer size arguments to ones/zeros. ones(1,N/2) with odd N (N/2=110.5) -> MATLAB:NonIntegerInput 'Size inputs must be integers'. Whole-valued doubles (110.0) are accepted.",
+      "impact": "gdpower(N,1) and anasing(N,t0,h) with h<=0 error for odd N; even N is fine.",
+      "sites": [
+        {"file": "mfiles/gdpower.m", "lines": [83], "severity": "FATAL (odd N)", "trigger": "gdpowert.m N=221 -> gdpower(221,1)"},
+        {"file": "mfiles/anasing.m", "lines": [50], "severity": "FATAL (odd N, h<=0)", "trigger": "holdert.m N=211 -> anasing(211,t0,h)"}
+      ],
+      "fix": "Make sizing integer-safe: ones(1,round(N/2)) / zeros(1,round(N/2)), or restructure so the vector length is an explicit integer (and keep the y(2:N/2) index consistent). Confirm intended length for odd N against the k==1 group-delay definition."
+    },
+    {
+      "id": "B1",
+      "class": "DEPRECATED (works in R2024a, flagged)",
+      "title": "hist -> histogram",
+      "sites": [
+        {"file": "mfiles/friedman.m", "lines": [79]},
+        {"file": "mfiles/noisecgt.m", "lines": [40, 71, 94]},
+        {"file": "mfiles/noisecut.m", "lines": [39, 59, 80]}
+      ],
+      "fix": "Replace hist(x,Nb) with histogram(x,Nb) (adjust output to counts if needed) or keep with a deprecation note."
+    },
+    {
+      "id": "B2",
+      "class": "DEPRECATED (works in R2024a, flagged)",
+      "title": "caxis -> clim",
+      "sites": [
+        {"file": "mfiles/tfrview.m", "lines": [331]},
+        {"file": "mfiles/tfrview2.m", "lines": [299, 324]}
+      ],
+      "fix": "caxis([lo hi]) -> clim([lo hi])."
+    },
+    {
+      "id": "B3",
+      "class": "DEPRECATED / would-error if reached",
+      "title": "rand('uniform') legacy R4 state API",
+      "mechanism": "rand('uniform') errors in R2024a ('CLASSNAME argument must be a class that supports RAND'). Currently guarded by if MatlabVersion==4 (false), so never reached. Becomes live only if A1's version check is naively fixed to a modern branch that still routes here.",
+      "sites": [
+        {"file": "mfiles/noisecu.m", "lines": [39]},
+        {"file": "mfiles/anaask.m", "lines": [52]},
+        {"file": "mfiles/anabpsk.m", "lines": [52]},
+        {"file": "mfiles/anafsk.m", "lines": [52]},
+        {"file": "mfiles/anaqpsk.m", "lines": [52]}
+      ],
+      "fix": "Delete the R4-only rand('uniform') call (and the dead R4 branch) when fixing A1. Use rng(...) if reproducibility is required."
+    },
+    {
+      "id": "C1",
+      "class": "BUG (0.2, not R2024a-specific)",
+      "title": "tfrview2.m declares function tfrview (name collision)",
+      "mechanism": "tfrview2.m line 1 is 'function tfrview(...)', so the file defines tfrview and collides with tfrview.m. checkcode: 'Function name tfrview is known to MATLAB by its file name: tfrview2'.",
+      "impact": "No callable tfrview2 exists; file shadows/conflicts. Nothing calls tfrview2 (verified).",
+      "sites": [{"file": "mfiles/tfrview2.m", "lines": [1]}],
+      "fix": "Rename the function to tfrview2 (or the file). Decide intent: is tfrview2 a distinct API or a stale copy?"
+    },
+    {
+      "id": "C2",
+      "class": "TEST TOLERANCE (systematic, deterministic)",
+      "title": "3 unit tests fail 20/20 (pre-existing, not R2024a regression)",
+      "detail": [
+        {"test": "fmtt (test 5)", "rate": "20/20", "note": "fmt/ifmt Mellin round-trip max_err=0.0285 > tol 1e-2; even pure-analytic fmconst gives 0.74; even N=120 gives 0.033. Accuracy/tolerance issue, no non-integer indexing in path."},
+        {"test": "tfrppagt (test 7)", "rate": "20/20", "note": "PPAGED(ones window) vs PAGED asserted to sqrt(eps) (near-exact float equality) - too-strict tolerance."},
+        {"test": "tfrrppat (test 8)", "rate": "20/20", "note": "time-marginal peak/mean check - fragile tolerance."}
+      ],
+      "fix": "Not a language fix. Either relax the tolerances to a numerically-justified bound or regenerate reference values. Flag for the 0.3 test suite."
+    },
+    {
+      "id": "C3",
+      "class": "TEST FLAKINESS (RNG, pre-existing)",
+      "title": "5 unit tests fail intermittently (noisecg unseeded randn)",
+      "detail": [
+        {"test": "tfrbjt (13)", "rate": "1/20"},
+        {"test": "tfrcwt (12)", "rate": "2/20"},
+        {"test": "tfrridht (13)", "rate": "3/20"},
+        {"test": "tfrridtt (13)", "rate": "3/20"},
+        {"test": "tfrscalt (7)", "rate": "0/20"}
+      ],
+      "note": "All use noisecg (unseeded randn) with a fixed 5e-2 tolerance; outcome depends on the random realization.",
+      "fix": "Seed the RNG in the test (rng(fixed)) or use a stored reference noise vector; or widen the tolerance. Not an R2024a regression."
+    }
+  ],
+  "mlint_modernization": {
+    "total_issues": 4987,
+    "notable": {
+      "extra_comma": 2481,
+      "extra_semicolon": 1174,
+      "logical_scalar_pipe_amp_to_double": 345,
+      "ij_to_1i_robustness": 71,
+      "any_simplification": 63,
+      "eval_removal": 24,
+      "preallocation": 23,
+      "axes_in_loop": 17,
+      "output_var_comma": 47,
+      "transpose_to_mean_dimension": 35,
+      "hist": 7,
+      "caxis": 3,
+      "global_variables": 7,
+      "inv_a_times_b": 1,
+      "tfrview_name_collision": 1
+    },
+    "assessment": "None fatal. Recommend in 0.3: address i/j->1i (robustness) and eval removal (safety); the rest are optional style/perf."
+  },
+  "verified_not_incompatibilities": [
+    "No removed functions used (wavread/wavwrite/mp3read/plotyy/str2mat/findstr/h5info/iddata).",
+    "No other reserved-word-as-variable (only the continue in tfrqview2).",
+    "M+rem(M,2) / N+rem(N,2) integer-safe patterns are fine.",
+    "linspace with a non-integer count truncates (fine).",
+    "Demos are otherwise clean: tfdemo7 runs end-to-end headless."
+  ]
+}

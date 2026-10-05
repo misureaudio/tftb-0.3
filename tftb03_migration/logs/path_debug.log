@@ -1,0 +1,10 @@
+dir fwd slashes: numel=16
+dir backslash: numel=16
+genpath backslash numel=604
+  D
+  :
+  \
+  T
+  O
+  O
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true

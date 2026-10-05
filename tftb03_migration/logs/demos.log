@@ -1,0 +1,780 @@
+BEGIN_DEMO tfdemo1
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+%TFDEMO1 Introduction to the Time-Frequency Toolbox.
+%	O. Lemoine - May 1996. 
+%	Copyright (c) CNRS.
+
+
+% Welcome to the Time-Frequency Toolbox for MATLAB. This demonstration 
+% follows the plan of the tutorial, and consider exactly the same examples.
+% Therefore, for further information about these illustrations, we advise
+% you to refer to the corresponding chapter of the tutorial.  	
+%
+% Press any key to continue...
+ 
+pause; clc;
+ 
+% First let's create an analytic linear frequency modulated signal, whose 
+% normalized frequency is changing from 0 to 0.5 :
+
+sig1=fmlin(128,0,0.5);
+plot(real(sig1)); axis([1 128 -1 1]);
+xlabel('Time'); ylabel('Real part');
+title('Linear frequency modulation'); grid
+
+% From this time-domain representation, it is difficult to say what kind 
+% of modulation is contained in this signal.
+%
+% Press any key to continue...
+
+pause; clc;
+
+% Now let's consider its energy spectrum :
+ 
+dsp1=fftshift(abs(fft(sig1)).^2); 
+plot((-64:63)/128,dsp1);        
+xlabel('Normalized frequency'); ylabel('Squared modulus');
+title('Spectrum'); grid
+
+% We still can not say, from this plot, anything about the evolution in
+% time of the frequency content.
+%
+% In order to have a more informative description of such a signal, it 
+% would be better to directly represent their frequency content while 
+% still keeping the time description parameter : this is precisely the
+% aim of time-frequency analysis. To illustrate this, let's try the
+% Wigner-Ville distribution on this signal :
+%
+% press any key to continue...
+
+pause;  
+
+tfrwv(sig1);
+{Error using tfrview (line 66)
+unsupported matlab version. please send an email.
+Error in tfrqview (line 189)
+   tfrview(tfr,sig,t,method,param);
+Error in tfrwv (line 82)
+ tfrqview(tfr,x,t,'tfrwv');
+Error in tfdemo1 (line 65)
+tfrwv(sig1);} 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001
+DEMO_EXIT tfdemo1 status=1
+END_DEMO tfdemo1
+BEGIN_DEMO tfdemo2
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+% Time and frequency localizations and the Heisenberg-Gabor inequality 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% The time and frequency localizations can be evaluated thanks to 
+% the M-files loctime.m and locfreq.m of the Toolbox. The first one
+% gives the average time center (tm) and the duration (T) of a signal,
+% and the second one the average normalized frequency (num) and the 
+% normalized bandwidth (B). For example, for a linear chirp with a 
+% Gaussian amplitude modulation, we obtain :
+
+sig=fmlin(256).*amgauss(256); 
+subplot(211); plot(real(sig)); axis([1 256 -1 1]); grid;
+xlabel('Time'); ylabel('Real part'); title('Signal in time');
+dsp=fftshift(abs(fft(sig)).^2);
+subplot(212); plot((-128:127)/256,dsp); grid;
+xlabel('Normalized frequency'); ylabel('Squared modulus'); 
+title('Energy spectrum');
+[tm ,T]=loctime(sig) 
+tm =
+   128
+T =
+    32
+[num,B]=locfreq(sig)
+num =
+    0.2490
+B =
+    0.0701
+
+% Press any key to continue...
+ 
+pause; clc;
+
+% One interesting property of this product T*B is that it is lower
+% bounded : T * B >= 1. This constraint, known as the HEISENBERG-GABOR 
+% INEQUALITY, illustrates the fact that a signal can not have 
+% simultaneously an arbitrarily small support in time and in frequency.
+% If we consider a Gaussian signal,
+
+sig=amgauss(256); 
+subplot(211); plot(real(sig)); axis([1 256 0 1]); grid;
+xlabel('Time'); ylabel('Real part'); title('Signal in time');
+dsp=fftshift(abs(fft(sig)).^2);
+subplot(212); plot((-128:127)/256,dsp); grid;
+xlabel('Normalized frequency'); ylabel('Squared modulus'); 
+title('Energy spectrum');
+[tm,T]=loctime(sig); 
+[fm,B]=locfreq(sig);
+[T,B,T*B]
+ans =
+   32.0000    0.0312    1.0000
+
+% we can see that it minimizes the time-bandwidth product, and thus is 
+% the most concentrated signal in the time-frequency plane.
+%
+% Press any key to continue...
+ 
+pause; clc;
+
+% Instantaneous frequency and group delay
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% The instantaneous frequency, defined for any analytic signal xa(t) as 
+% the derivative of its phase, if(t) = 1/(2pi) d arg{xa(t)} / dt, can
+% be a good solution to describe a signal simultaneously in time and in 
+% frequency :
+
+sig=fmlin(256); t=2:255; clf;
+ifr=instfreq(sig); plotifl(t,ifr,sig(t)); grid;
+axis([1 256 0 0.5]); xlabel('Time'); ylabel('Normalized frequency'); 
+title('Instantaneous frequency estimation');
+ 
+% As we can see from this plot, the instantaneous frequency shows with
+% success the local frequency behavior as a function of time. 
+%
+% Press any key to continue...
+ 
+pause;
+
+% In a dual way, the local time behavior as a function of frequency can 
+% be described by the GROUP DELAY : 
+%	tx(nu) = -1/(2*pi) * d arg{Xa(nu)}/d nu.
+% This quantity measures the average time arrival of the frequency nu. 
+% For example, with signal sig of the previous example, we obtain :
+
+fnorm=0:.05:.5; gd=sgrpdlay(sig,fnorm); plot(gd,fnorm); grid;
+xlabel('Time'); ylabel('Normalized frequency'); 
+title('Group delay estimation'); axis([1 256 0 0.5]);
+ 
+% Press any key to continue...
+ 
+pause; clc;
+
+% Be careful of the fact that in general, instantaneous frequency and 
+% group delay define two different curves in the time-frequency plane. 
+% They are approximatively identical only when the time-bandwidth product 
+% TB is large. To illustrate this point, let us consider a simple example.
+% We calculate the instantaneous frequency and group delay of two signals, 
+% the first one having a large TB product, and the second one a small TB
+% product:
+
+t=2:255; 
+sig1=amgauss(256,128,90).*fmlin(256,0,0.5);
+[tm,T1]=loctime(sig1); [fm,B1]=locfreq(sig1); T1*B1
+ans =
+   15.9139
+ifr1=instfreq(sig1,t); f1=linspace(0,0.5-1/256,256);
+gd1=sgrpdlay(sig1,f1); subplot(211); plot(t,ifr1,'*',gd1,f1,'-')
+axis([1 256 0 0.5]); grid; xlabel('Time'); 
+ylabel('Normalized frequency'); 
+
+sig2=amgauss(256,128,30).*fmlin(256,0.2,0.4);
+[tm,T2]=loctime(sig2); [fm,B2]=locfreq(sig2); T2*B2
+ans =
+    1.2240
+ifr2=instfreq(sig2,t); f2=linspace(0.2,0.4,256);
+gd2=sgrpdlay(sig2,f2); subplot(212); plot(t,ifr2,'*',gd2,f2,'-')
+axis([1 256 0.2 0.4]); grid; xlabel('Time'); 
+ylabel('Normalized frequency'); 
+ 
+% On the first plot, the two curves are almost superimposed (i.e. the
+% instantaneous frequency is the inverse transform of the group delay),
+% whereas on the second plot, the two curves are clearly different.
+%
+% Press any key to continue...
+ 
+pause; clc;
+
+% Synthesis of a mono-component non stationary signal
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% One part of the Time-Frequency Toolbox is dedicated to the generation 
+% of non stationary signals. In that part, three groups of M-files are 
+% available:
+%
+%	- The first one allows to synthesize different amplitude
+% modulations. These M-files begin with the prefix 'am'. 
+%	- The second one proposes different frequency modulations.  These
+% M-files begin with 'fm'. 
+%	- The third one is a set of pre-defined signals. Some of them begin
+% with 'ana' because these signals are analytic, other have special names.
+% 
+% The first two groups of files can be combined to produce a large class of
+% non stationary signals, multiplying an amplitude modulation and a 
+% frequency modulation. For example, we can multiply a linear frequency 
+% modulation by a gaussian amplitude modulation :
+
+fm1=fmlin(256,0,0.5); am1=amgauss(256);
+sig1=am1.*fm1; clf; plot(real(sig1)); axis([1 256 -1 1]); 
+xlabel('Time'); ylabel('Real part');
+ 
+% By default, the signal is centered on the middle (256/2=128), and its
+% spread is T=32. If you want to center it at an other position t0, just
+% replace am1 by amgauss(256,t0). 
+%
+% Press any key to continue...
+ 
+pause; clc; 
+
+% A second example can be to multiply a pure frequency (constant frequency 
+% modulation) by a one-sided exponential window starting at t=100 :
+
+fm2=fmconst(256,0.2); am2=amexpo1s(256,100);
+sig2=am2.*fm2; plot(real(sig2)); axis([1 256 -1 1]); 
+xlabel('Time'); ylabel('Real part');
+ 
+% Press any key to continue...
+ 
+pause; 
+
+% As a third example of mono-component non-stationary signal, we can 
+% consider the M-file doppler.m : this function generates a modelization 
+% of the signal received by a fixed observer from a moving target emitting 
+% a pure frequency.
+
+[fm3,am3]=doppler(256,200,4000/60,10,50);
+sig3=am3.*fm3; plot(real(sig3)); axis([1 256 -0.4 0.4]); 
+xlabel('Time'); ylabel('Real part');
+
+% This example corresponds to a target (a car for instance) moving 
+% straightly at the speed of 50 m/s, and passing at 10 m from the observer
+% (the radar!). The rotating frequency of the engine is 4000 revolutions 
+% per minute, and the sampling frequency of the radar is 200 Hz.
+%
+% Press any key to continue...
+ 
+pause; clc; 
+
+%   In order to have a more realistic modelization of physical signals, we
+% may need to add some complex noise on these signals. To do so, two M-files
+% of the Time-Frequency Toolbox are proposed : noisecg.m generates a complex
+% white or colored Gaussian noise, and noisecu.m, a complex white uniform 
+% noise. For example, if we add complex colored Gaussian noise on the signal
+% sig1 with a signal to noise ratio of -10 dB,
+
+noise=noisecg(256,.8);
+sign=sigmerge(sig1,noise,-10); plot(real(sign)); 
+Min=min(real(sign)); Max=max(real(sign));
+xlabel('Time'); ylabel('Real part'); axis([1 256 Min Max]); 
+
+% the deterministic signal sig1 is now almost imperceptible from the noise.
+%
+% Press any key to continue...
+ 
+pause; clc; 
+
+
+% Multi-component non stationary signals 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+% The notion of instantaneous frequency implicitly assumes that, at each
+% time instant, there exists only a single frequency component. A dual
+% restriction applies to the group delay : the implicit assumption is that
+% a given frequency is concentrated around a single time instant. Thus, if
+% these assumptions are no longer valid, which is the case for most of the
+% multi-component signals, the result obtained using the instantaneous
+% frequency or the group delay is meaningless.
+%
+% For example, let's consider the superposition of two linear frequency 
+% modulations :
+
+N=128; x1=fmlin(N,0,0.2); x2=fmlin(N,0.3,0.5);
+x=x1+x2;
+
+% At each time instant t, an ideal time-frequency representation should
+% represent two different frequencies with the same amplitude. The results
+% obtained using the instantaneous frequency and the group delay are of
+% course completely different, and therefore irrelevant :
+
+ifr=instfreq(x); subplot(211); plot(ifr);
+xlabel('Time'); ylabel('Normalized frequency'); axis([1 N  0 0.5]);
+fnorm=0:0.01:0.5; gd=sgrpdlay(x,fnorm); subplot(212); plot(gd,fnorm);
+xlabel('Time'); ylabel('Normalized frequency'); axis([1 N  0 0.5]);
+ 
+% So these one-dimensional representations, instantaneous frequency and 
+% group delay, are not sufficient to represent all the non stationary 
+% signals. A further step has to be made towards two-dimensional mixed 
+% representations, jointly in time and in frequency. 
+%
+% Press any key to continue...
+ 
+pause; clc; 
+
+% To have an idea of what can be made with an time-frequency decomposition,
+% let's anticipate the following and have a look at the result obtained 
+% with the Short Time Fourier Transform :
+
+tfrstft(x); 
+{Error using tfrview (line 66)
+unsupported matlab version. please send an email.
+Error in tfrqview (line 191)
+   tfrview(tfr,sig,t,method,param,p1);
+Error in tfrstft (line 91)
+ tfrqview(abs(tfr).^2,x,t,'tfrstft',h);
+Error in tfdemo2 (line 250)
+tfrstft(x); } 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001
+DEMO_EXIT tfdemo2 status=1
+END_DEMO tfdemo2
+BEGIN_DEMO tfdemo3
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+% The Short-Time Fourier Transform
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% In order to introduce time-dependency in the Fourier transform, a simple
+% and intuitive solution consists in pre-windowing the signal x(u) around a
+% particular time t, calculating its Fourier transform, and doing that for
+% each time instant t. The resulting transform is called the Short-Time 
+% Fourier Transform (STFT).
+%
+% Let us have a look at the result obtained by applying the STFT on a
+% speech signal. The signal we consider contains the word 'GABOR' recorded 
+% on 338 points with a sampling frequency of 1 kHz (with respect to the 
+% Shannon criterion).
+
+echo off
+
+time=0:337; 
+clf; subplot(211); plot(time,gabor); xlabel('Time [ms]'); grid
+
+% Now let us have a look at the Fourier transform of it :
+
+dsp=fftshift(abs(fft(gabor)).^2); subplot(212); 
+freq=(-169:168)/338*1000; plot(freq,dsp); xlabel('Frequency [Hz]'); grid
+
+% We can not say from this representation what part of the word is
+% responsible for that peak around 140 Hz. 
+%
+% Press any key to continue...
+ 
+pause; clc;
+ 
+% Now if we look at the squared modulus of the STFT of this signal, 
+% using a hamming analysis window of 85 points, we can see some interesting
+% features (the time-frequency matrix is loaded from the MAT-file because 
+% it takes a long time to be calculated ; we represent only the frequency 
+% domain where the signal is present) :
+		
+clf; tfrsp(gabor,1:338,256,tftb_window(61,'hanning'),1); 
+Spectrogram
+10 20 30 40 50 60 70 80 90 100 % complete in 0.09375 seconds.
+
+Be careful : the signal is not analytic!
+{Error using tfrview (line 66)
+unsupported matlab version. please send an email.
+Error in tfrqview (line 191)
+   tfrview(tfr,sig,t,method,param,p1);
+Error in tfrsp (line 93)
+ tfrqview(tfr,x,t,'tfrsp',h);
+Error in tfdemo3 (line 68)
+clf; tfrsp(gabor,1:338,256,tftb_window(61,'hanning'),1); } 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001
+DEMO_EXIT tfdemo3 status=1
+END_DEMO tfdemo3
+BEGIN_DEMO tfdemo4
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+% The Wigner-Ville distribution
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% A time-frequency energy distribution which is particularly interesting 
+% is the Wigner-Ville distribution (WVD),which satisfies a large number 
+% of desirable mathematical properties. Let us see what we obtain on two 
+% particular synthetic signals :
+% - the first signal is the academic linear chirp signal :
+
+sig=fmlin(128);
+
+% If we choose a 3-dimension plot to represent it, we can see that the WVD
+% can take negative values, and that the localization obtained in the
+% time-frequency plane for this signal is almost perfect.
+
+tfrwv(sig);
+{Error using tfrview (line 66)
+unsupported matlab version. please send an email.
+Error in tfrqview (line 189)
+   tfrview(tfr,sig,t,method,param);
+Error in tfrwv (line 82)
+ tfrqview(tfr,x,t,'tfrwv');
+Error in tfdemo4 (line 39)
+tfrwv(sig);} 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001
+DEMO_EXIT tfdemo4 status=1
+END_DEMO tfdemo4
+BEGIN_DEMO tfdemo5
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+% The Affine class : presentation
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% This class gathers all the quadratic time-frequency representations 
+% which are covariant by translation in time and dilation. The WVD is
+% an element of the affine class, provided that we introduce an 
+% arbitrary non-zero frequency nu0, and identify the scale with the 
+% inverse of the frequency : a=nu0/nu.
+% The choice of an element in the affine class can be reduced to the 
+% choice of an affine correlation kernel PI(t,nu). When PI is a 
+% two-dimensional low-pass function, it plays the role of an affine
+% smoothing function which tries to reduce the interferences generated 
+% by the WVD.
+%
+% The scalogram 
+%"""""""""""""""
+%  A first example of affine distribution is given by the scalogram,
+% which is the squared modulus of the wavelet transform. It is the affine
+% counterpart of the spectrogram. As illustrated in the following example,
+% the tradeoff between time and frequency resolutions encountered with the
+% spectrogram is also present with the scalogram.
+%  We analyze a signal composed of two gaussian atoms, one with a low 
+% central frequency, and the other with a high one, with the scalogram 
+% (Morlet wavelet) :
+
+sig=atoms(128,[38,0.1,32,1;96,0.35,32,1]);
+clf; tfrscalo(sig);
+{Error using tfrscalo (line 114)
+FMAX must be greater or equal to FMIN
+Error in tfdemo5 (line 50)
+clf; tfrscalo(sig);} 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001
+DEMO_EXIT tfdemo5 status=1
+END_DEMO tfdemo5
+BEGIN_DEMO tfdemo6
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+ 
+% The reassignment of the spectrogram
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%   The reassignment method, originally introduced in an attempt to
+% improve the spectrogram, moves each value of the spectrogram computed 
+% at any point (t,nu) to another point which is the center of gravity 
+% of the signal energy distribution around (t,nu). 
+%   Let us have a look at the readability improvement obtained by the 
+% reassigned spectrogram on an example of multicomponent signal ; the 
+% result is compared to the "ideal" representation based on the knowledge 
+% of the instantaneous frequency law of each component :
+
+N=128; [sig1 ifl1]=fmsin(N,0.15,0.45,100,1,0.4,-1);
+[sig2 ifl2]=fmhyp(N,[1 .5],[32 0.05]);
+sig=sig1+sig2;
+figure(1); tfrideal([ifl1 ifl2]);
+figure(2); tfrrsp(sig,1:128,256,tftb_window(27,'hanning'),1);
+Spectrogram
+10 20 30 40 50 60 70 80 90 100 % complete in 0.015625 seconds.
+
+reassignment: 
+10 20 30 40 50 60 70 80 90 100 % complete in 0.015625 seconds.
+
+% The improvement given by the reassignment method is obvious : compared to
+% the spectrogram, the two components obtained with the reassigned spectrogram 
+% are much better localized and almost perfectly concentrated, and there are 
+% very few cross-terms.
+%
+% Press any key to continue...
+ 
+pause; clc; close;
+
+% Reassignment of other quadratic time-frequency distributions
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%   The reassignment method has been extended to many other time-frequency
+% distributions, and in particular to the distributions of the Cohen's class
+% and of the affine class. We present here some examples, on a signal composed
+% of 3 components : a sinusoidal frequency modulation followed by a pure tone
+% together with a linear chirp : 
+
+[sig1 ifl1]=fmsin(60,0.15,0.35,50,1,0.35,1);
+[sig2 ifl2]=fmlin(60,0.3,0.1);
+[sig3 ifl3]=fmconst(60,0.4);
+sig=[sig1;zeros(8,1);sig2+sig3];
+iflaw=zeros(128,2);
+iflaw(:,1)=[ifl1;NaN*ones(8,1);ifl2];
+iflaw(:,2)=[NaN*ones(68,1);ifl3];
+% We first plot the instantaneous frequency laws (obtained by tfrideal) 
+% and the WVD of this signal :
+
+tfrideal(iflaw);
+figure; tfrwv(sig);
+{Error using tfrview (line 66)
+unsupported matlab version. please send an email.
+Error in tfrqview (line 189)
+   tfrview(tfr,sig,t,method,param);
+Error in tfrwv (line 82)
+ tfrqview(tfr,x,t,'tfrwv');
+Error in tfdemo6 (line 70)
+figure; tfrwv(sig);} 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001
+DEMO_EXIT tfdemo6 status=1
+END_DEMO tfdemo6
+BEGIN_DEMO tfdemo7
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+
+
+% Information from the interferences
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%  The interference terms present in any quadratic time-frequency
+% representation, even if they disturb the readability of the
+% representation, contain some information about the analyzed
+% signal. The precise knowledge of their structure and construction rule
+% is useful to interpret the information that they contain. 
+% 
+%   For instance, the interference terms contain some information about the
+% phase of a signal. Let us consider the pseudo WVD of the superposition of
+% two constant frequency modulations, with a phase shift between the two
+% sinusoids. If we compare the pseudo WVD for different phase shifts, we can
+% observe a time-sliding of the oscillating interferences :
+
+pause;
+M=movpwdph(128,8,'S'); movie(M,20);
+
+% Each snapshot corresponds to the pseudo WVD with a different phase
+% shift between the two components. 
+% 
+% Press any key to continue...
+
+pause; 
+%   A second example of phase's signature is given by the influence of a
+% jump of phase in a signal analyzed by the (pseudo) Wigner-Ville
+% distribution : for instance, if we consider a constant frequency
+% modulation presenting a jump of phase in its middle : 
+
+pause; 
+M=movpwjph(128,8,'S'); movie(M,10);
+
+% the pseudo WVD presents a pattern around the jump position which is
+% all the more important since this jump of phase is close to pi. This
+% characteristic can be exploited to detect a jump of phase in a signal.
+%
+% Press any key to continue...
+
+close; pause; clc; 
+ 
+
+% Renyi information
+%~~~~~~~~~~~~~~~~~~~
+%  Another interresting information that one may need to know about an
+% observed non stationary signal is the number of elementary signals
+% composing this observation. Third order Renyi information is a possible
+% solution for measuring this information. 
+%  This can be observed by considering the WVD of one, two and then
+% four elementary atoms, and then by applying the Renyi information on
+% them :
+
+sig=atoms(128,[64,0.25,20,1]); 
+[TFR,T,F]=tfrwv(sig);
+R1=renyi(TFR,T,F)
+R1 =
+   -0.2075
+pause;
+
+sig=atoms(128,[32,0.25,20,1;96,0.25,20,1]); 
+[TFR,T,F]=tfrwv(sig);
+R2=renyi(TFR,T,F)
+R2 =
+    0.7790
+pause;
+
+sig=atoms(128,[32,.15,20,1;96,.15,20,1;32,.35,20,1;96,.35,20,1]);  
+[TFR,T,F]=tfrwv(sig);
+R3=renyi(TFR,T,F)
+R3 =
+    1.8029
+
+% We can see that if R is set to 0 for one elementary atom by
+% subtracting R1, we obtain a result close to 1 for 2 atoms
+% (R2-R1=0.99) and close to 2 for 4 atoms ( R3-R1=2.01). If the components 
+% are less separated in the time-frequency plane, the information measure
+% will be affected by the overlapping of the components or by the 
+% interference terms between them. In particular, it is possible to show that
+% the Renyi information measure provides a good indication of the time
+% separation at which the atoms are essentially resolved, more precise than
+% does the time-bandwidth product.
+%
+% Press any key to continue...
+ 
+pause; clc; clf; 
+ 
+% Time-frequency analysis : help to decision
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%  The Wigner-Hough transform
+% """"""""""""""""""""""""""""
+%  Applying the Hough transform (detection of lines in images) to the WVD
+% of a linear chirp signal leads to a new tranform, the Wigner-Hough transform,
+% which ideally concentrates this kind of signal in a parameter space. Then,
+% by comparing this 2-dimensional statistic to a threshold, we obtain the 
+% asymptotically optimal detector (in the case of white gaussian noise). 
+% Moreover, the coordinates of the peak detected give estimators of the chirp
+% parameters which asymptotically reach the Cramer-Rao lower bounds.   
+% 
+%   Here is an illustration of this decision test : first, we consider
+% a linear chirp signal embedded in a white gaussian noise, with a 1 dB 
+% signal-to-noise ratio :
+
+N=64; sig=sigmerge(fmlin(N,0,0.3),noisecg(N),1);
+
+% Now, if we analyze it with the WVD followed by the Hough transform,
+
+tfr=tfrwv(sig); contour(tfr,5); grid; 
+htl(tfr,N,N,1);
+Hough transform - Detection of lines
+10 20 30 40 50 60 70 80 90 100 % complete in 0 seconds.
+ 
+
+% we obtain, in the parameters' space (rho,theta), a peak representing
+% the chirp signal, significantly more energetic than the other peaks
+% corresponding to the noise. The decision test is then very simple : it
+% consists in applying a threshold on this representation, positioned
+% according to a detection criterion ; if the peak is higher than the
+% threshold, then the chirp is said to be present, and the coordinates of
+% that peak (hat{rho},hat{theta}) provide estimates of the chirp
+% parameters (the change from (hat{rho},hat{theta}) to
+% (hat{nu0},hat{beta}) corresponds to the change from polar to
+% Cartesian coordinates).
+%
+% Press any key to continue...
+ 
+pause; clc
+
+%   In the case of a multi-component signal, the problem of interference
+% terms appear. However, due to the oscillating structure of these
+% terms, the integration operated by the Hough transform on the WVD will 
+% attenuate them. This can be observed on the following example :
+% we superpose two chirp signals with different initial frequencies and
+% sweep rates :
+
+sig=sigmerge(fmlin(N,0,0.4),fmlin(N,0.3,0.5),1);
+tfr=tfrwv(sig); contour(tfr,5); grid
+htl(tfr,N,N,1);
+Hough transform - Detection of lines
+10 20 30 40 50 60 70 80 90 100 % complete in 0.015625 seconds.
+ 
+
+% We can see that the components are well separated in the parameter
+% space, in spite of the use of a nonlinearity in the WHT. Again, the
+% coordinates of the two peaks provide estimates of the different
+% parameters. 
+%
+% Press any key to continue...
+ 
+pause; clc
+
+% Analysis of local singularities
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%  Since they are time-dependent in nature, the wavelet-based
+% techniques also allow an estimation of the local regularity of a
+% signal. 
+% 
+%   For instance, we consider a 64-points Lipschitz singularity of 
+% strength H=0, centered at t0=32,
+ 
+sig=anasing(64);
+
+% and analyze it with the scalogram (Morlet wavelet with half-length=4),
+
+[tfr,t,f]=tfrscalo(sig,1:64,4,0.01,0.5,256,1);
+Scalogram distribution
+Frequency runs from 0.01 to 0.5 with 256 points
+using a Morlet wavelet
+10 20 30 40 50 60 70 80 90 100 % complete in 0.015625 seconds.
+
+% The time-localization of the singularity can be clearly estimated from
+% the scalogram distribution at small scales :
+
+H=holder(tfr,f,1,256,32,1)
+H =
+   -0.0381
+ 
+% This value is a good estimation of H (=0 here)
+%
+% Press any key to continue...
+ 
+pause;
+
+% If we now consider a singularity of strength H=-0.5,
+
+sig=anasing(64,32,-0.5);
+[tfr,t,f]=tfrscalo(sig,1:64,4,0.01,0.5,256,1);
+Scalogram distribution
+Frequency runs from 0.01 to 0.5 with 256 points
+using a Morlet wavelet
+10 20 30 40 50 60 70 80 90 100 % complete in 0.09375 seconds.
+
+% we notice the different behavior of the scalogram along scales, whose
+% decrease is characteristic of the strength H. The estimation of the
+% Holder exponent at t=32 gives :
+
+H=holder(tfr,f,1,256,32,1)
+H =
+   -0.5107
+
+% which is close to 0.5.
+
+pause; clf; clc; 
+
+%-----------------------------------------------------------------------
+% Thank you for your attention. We hope that you enjoyed this 
+% demonstration, and that your understanding in time-frequency analysis 
+% has made some progress. Now have a nice time with the Time-Frequency
+% Toolbox.  
+%-----------------------------------------------------------------------
+
+echo off
+
+DEMO_DONE tfdemo7
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+DEMO_EXIT tfdemo7 status=0
+END_DEMO tfdemo7

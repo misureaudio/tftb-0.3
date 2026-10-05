@@ -1,0 +1,14 @@
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+BEGIN_DEMO tfdemo1
+{Unary operator '~' is not supported for operand of type 'cell'.
+Error in run_demos (line 16)
+  keep = keep(~strfind(keep,'JAVA_TOOL_OPTIONS'));} 
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+ERROR: MATLAB error Exit Status: 0x00000001

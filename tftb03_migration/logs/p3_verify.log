@@ -1,0 +1,1293 @@
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+BEGIN_TEST altest
+PASS	altest
+END_TEST altest
+BEGIN_TEST ambifunt
+For a faster computation, N should be a power of two
+PASS	ambifunt
+END_TEST ambifunt
+BEGIN_TEST ambifuwt
+PASS	ambifuwt
+END_TEST ambifuwt
+BEGIN_TEST amexpo1t
+PASS	amexpo1t
+END_TEST amexpo1t
+BEGIN_TEST amexpo2t
+PASS	amexpo2t
+END_TEST amexpo2t
+BEGIN_TEST amgausst
+PASS	amgausst
+END_TEST amgausst
+BEGIN_TEST amrectt
+PASS	amrectt
+END_TEST amrectt
+BEGIN_TEST amtriant
+PASS	amtriant
+END_TEST amtriant
+BEGIN_TEST anaaskt
+PASS	anaaskt
+END_TEST anaaskt
+BEGIN_TEST anabpskt
+PASS	anabpskt
+END_TEST anabpskt
+BEGIN_TEST anafskt
+PASS	anafskt
+END_TEST anafskt
+BEGIN_TEST anapulst
+PASS	anapulst
+END_TEST anapulst
+BEGIN_TEST anaqpskt
+PASS	anaqpskt
+END_TEST anaqpskt
+BEGIN_TEST anasingt
+PASS	anasingt
+END_TEST anasingt
+BEGIN_TEST anastept
+PASS	anastept
+END_TEST anastept
+BEGIN_TEST atomst
+PASS	atomst
+END_TEST atomst
+BEGIN_TEST disprogt
+PASS	disprogt
+END_TEST disprogt
+BEGIN_TEST dividert
+PASS	dividert
+END_TEST dividert
+BEGIN_TEST dopnoist
+PASS	dopnoist
+END_TEST dopnoist
+BEGIN_TEST dopplert
+PASS	dopplert
+END_TEST dopplert
+BEGIN_TEST dwindowt
+PASS	dwindowt
+END_TEST dwindowt
+BEGIN_TEST fmconstt
+PASS	fmconstt
+END_TEST fmconstt
+BEGIN_TEST fmhypt
+!!! WARNING: signal is undersampled or has negative frequencies
+!!! WARNING: signal is undersampled or has negative frequencies
+PASS	fmhypt
+END_TEST fmhypt
+BEGIN_TEST fmlint
+PASS	fmlint
+END_TEST fmlint
+BEGIN_TEST fmodanyt
+PASS	fmodanyt
+END_TEST fmodanyt
+BEGIN_TEST fmpart
+PASS	fmpart
+END_TEST fmpart
+BEGIN_TEST fmpowert
+PASS	fmpowert
+END_TEST fmpowert
+BEGIN_TEST fmsint
+PASS	fmsint
+END_TEST fmsint
+BEGIN_TEST fmtt
+FAIL	fmtt		D:\TOOLBOX\tftb-0.3\tests\fmtt.m	120	fmt test 6 failed
+END_TEST fmtt
+BEGIN_TEST friedmat
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	friedmat
+END_TEST friedmat
+BEGIN_TEST gdpowert
+PASS	gdpowert
+END_TEST gdpowert
+BEGIN_TEST holdert
+PASS	holdert
+END_TEST holdert
+BEGIN_TEST htlt
+PASS	htlt
+END_TEST htlt
+BEGIN_TEST ifestart
+PASS	ifestart
+END_TEST ifestart
+BEGIN_TEST ifmtt
+PASS	ifmtt
+END_TEST ifmtt
+BEGIN_TEST instfret
+PASS	instfret
+END_TEST instfret
+BEGIN_TEST integ2dt
+PASS	integ2dt
+END_TEST integ2dt
+BEGIN_TEST integt
+PASS	integt
+END_TEST integt
+BEGIN_TEST izakt
+PASS	izakt
+END_TEST izakt
+BEGIN_TEST kayttht
+PASS	kayttht
+END_TEST kayttht
+BEGIN_TEST klaudert
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 43)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 43)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 49)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 49)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 55)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 55)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+PASS	klaudert
+END_TEST klaudert
+BEGIN_TEST locfreqt
+PASS	locfreqt
+END_TEST locfreqt
+BEGIN_TEST loctimet
+PASS	loctimet
+END_TEST loctimet
+BEGIN_TEST margtfrt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	margtfrt
+END_TEST margtfrt
+BEGIN_TEST mexhatt
+PASS	mexhatt
+END_TEST mexhatt
+BEGIN_TEST midpoitt
+PASS	midpoitt
+END_TEST midpoitt
+BEGIN_TEST modulot
+PASS	modulot
+END_TEST modulot
+BEGIN_TEST momftfrt
+PASS	momftfrt
+END_TEST momftfrt
+BEGIN_TEST momttfrt
+PASS	momttfrt
+END_TEST momttfrt
+BEGIN_TEST noisecgt
+PASS	noisecgt
+END_TEST noisecgt
+BEGIN_TEST noisecut
+PASS	noisecut
+END_TEST noisecut
+BEGIN_TEST oddt
+PASS	oddt
+END_TEST oddt
+BEGIN_TEST plotsidt
+PASS	plotsidt
+END_TEST plotsidt
+BEGIN_TEST renyit
+PASS	renyit
+END_TEST renyit
+BEGIN_TEST ridgest
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	ridgest
+END_TEST ridgest
+BEGIN_TEST scalet
+PASS	scalet
+END_TEST scalet
+BEGIN_TEST sgrpdlat
+PASS	sgrpdlat
+END_TEST sgrpdlat
+BEGIN_TEST sigmergt
+PASS	sigmergt
+END_TEST sigmergt
+BEGIN_TEST tfrbertt
+PASS	tfrbertt
+END_TEST tfrbertt
+BEGIN_TEST tfrbjt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrbjt
+END_TEST tfrbjt
+BEGIN_TEST tfrbudt
+For a faster computation, N should be a power of two
+FAIL	tfrbudt		D:\TOOLBOX\tftb-0.3\tests\tfrbudt.m	153	tfrbud test 13 failed
+END_TEST tfrbudt
+BEGIN_TEST tfrcwt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrcwt
+END_TEST tfrcwt
+BEGIN_TEST tfrdflat
+PASS	tfrdflat
+END_TEST tfrdflat
+BEGIN_TEST tfrgabot
+PASS	tfrgabot
+END_TEST tfrgabot
+BEGIN_TEST tfrgrdt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrgrdt
+END_TEST tfrgrdt
+BEGIN_TEST tfrideat
+PASS	tfrideat
+END_TEST tfrideat
+BEGIN_TEST tfrmhst
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrmhst
+END_TEST tfrmhst
+BEGIN_TEST tfrmht
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrmht
+END_TEST tfrmht
+BEGIN_TEST tfrmmcet
+PASS	tfrmmcet
+END_TEST tfrmmcet
+BEGIN_TEST tfrpaget
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrpaget
+END_TEST tfrpaget
+BEGIN_TEST tfrpmht
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrpmht
+END_TEST tfrpmht
+BEGIN_TEST tfrppagt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrppagt
+END_TEST tfrppagt
+BEGIN_TEST tfrpwvt
+For a faster computation, N should be a power of two
+PASS	tfrpwvt
+END_TEST tfrpwvt
+BEGIN_TEST tfrrgabt
+PASS	tfrrgabt
+END_TEST tfrrgabt
+BEGIN_TEST tfrridbt
+PASS	tfrridbt
+END_TEST tfrridbt
+BEGIN_TEST tfrridht
+PASS	tfrridht
+END_TEST tfrridht
+BEGIN_TEST tfrridnt
+PASS	tfrridnt
+END_TEST tfrridnt
+BEGIN_TEST tfrridtt
+PASS	tfrridtt
+END_TEST tfrridtt
+BEGIN_TEST tfrrit
+PASS	tfrrit
+END_TEST tfrrit
+BEGIN_TEST tfrrmsct
+PASS	tfrrmsct
+END_TEST tfrrmsct
+BEGIN_TEST tfrrpmht
+PASS	tfrrpmht
+END_TEST tfrrpmht
+BEGIN_TEST tfrrppat
+PASS	tfrrppat
+END_TEST tfrrppat
+BEGIN_TEST tfrrpwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrpwvt
+END_TEST tfrrpwvt
+BEGIN_TEST tfrrspt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrspt
+END_TEST tfrrspt
+BEGIN_TEST tfrrspwt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrspwt
+END_TEST tfrrspwt
+BEGIN_TEST tfrscalt
+[Warning: HILBERT ignores imaginary part of input.] 
+[> In hilbert>hilbert_ml (line 58)
+In hilbert (line 40)
+In tfrscalt (line 112)
+In run_tests>run_one (line 52)
+In run_tests (line 31)] 
+PASS	tfrscalt
+END_TEST tfrscalt
+BEGIN_TEST tfrspawt
+PASS	tfrspawt
+END_TEST tfrspawt
+BEGIN_TEST tfrspt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrspt
+END_TEST tfrspt
+BEGIN_TEST tfrspwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrspwvt
+END_TEST tfrspwvt
+BEGIN_TEST tfrstftt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrstftt
+END_TEST tfrstftt
+BEGIN_TEST tfruntet
+PASS	tfruntet
+END_TEST tfruntet
+BEGIN_TEST tfrwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrwvt
+END_TEST tfrwvt
+BEGIN_TEST tfrzamt
+PASS	tfrzamt
+END_TEST tfrzamt
+BEGIN_TEST tftb_windowt
+PASS	tftb_windowt
+END_TEST tftb_windowt
+BEGIN_TEST zakt
+PASS	zakt
+END_TEST zakt
+SUMMARY total=0 pass=93 fail=2
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+BEGIN_TEST altest
+PASS	altest
+END_TEST altest
+BEGIN_TEST ambifunt
+For a faster computation, N should be a power of two
+PASS	ambifunt
+END_TEST ambifunt
+BEGIN_TEST ambifuwt
+PASS	ambifuwt
+END_TEST ambifuwt
+BEGIN_TEST amexpo1t
+PASS	amexpo1t
+END_TEST amexpo1t
+BEGIN_TEST amexpo2t
+PASS	amexpo2t
+END_TEST amexpo2t
+BEGIN_TEST amgausst
+PASS	amgausst
+END_TEST amgausst
+BEGIN_TEST amrectt
+PASS	amrectt
+END_TEST amrectt
+BEGIN_TEST amtriant
+PASS	amtriant
+END_TEST amtriant
+BEGIN_TEST anaaskt
+PASS	anaaskt
+END_TEST anaaskt
+BEGIN_TEST anabpskt
+PASS	anabpskt
+END_TEST anabpskt
+BEGIN_TEST anafskt
+PASS	anafskt
+END_TEST anafskt
+BEGIN_TEST anapulst
+PASS	anapulst
+END_TEST anapulst
+BEGIN_TEST anaqpskt
+PASS	anaqpskt
+END_TEST anaqpskt
+BEGIN_TEST anasingt
+PASS	anasingt
+END_TEST anasingt
+BEGIN_TEST anastept
+PASS	anastept
+END_TEST anastept
+BEGIN_TEST atomst
+PASS	atomst
+END_TEST atomst
+BEGIN_TEST disprogt
+PASS	disprogt
+END_TEST disprogt
+BEGIN_TEST dividert
+PASS	dividert
+END_TEST dividert
+BEGIN_TEST dopnoist
+PASS	dopnoist
+END_TEST dopnoist
+BEGIN_TEST dopplert
+PASS	dopplert
+END_TEST dopplert
+BEGIN_TEST dwindowt
+PASS	dwindowt
+END_TEST dwindowt
+BEGIN_TEST fmconstt
+PASS	fmconstt
+END_TEST fmconstt
+BEGIN_TEST fmhypt
+!!! WARNING: signal is undersampled or has negative frequencies
+!!! WARNING: signal is undersampled or has negative frequencies
+PASS	fmhypt
+END_TEST fmhypt
+BEGIN_TEST fmlint
+PASS	fmlint
+END_TEST fmlint
+BEGIN_TEST fmodanyt
+PASS	fmodanyt
+END_TEST fmodanyt
+BEGIN_TEST fmpart
+PASS	fmpart
+END_TEST fmpart
+BEGIN_TEST fmpowert
+PASS	fmpowert
+END_TEST fmpowert
+BEGIN_TEST fmsint
+PASS	fmsint
+END_TEST fmsint
+BEGIN_TEST fmtt
+FAIL	fmtt		D:\TOOLBOX\tftb-0.3\tests\fmtt.m	120	fmt test 6 failed
+END_TEST fmtt
+BEGIN_TEST friedmat
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	friedmat
+END_TEST friedmat
+BEGIN_TEST gdpowert
+PASS	gdpowert
+END_TEST gdpowert
+BEGIN_TEST holdert
+PASS	holdert
+END_TEST holdert
+BEGIN_TEST htlt
+PASS	htlt
+END_TEST htlt
+BEGIN_TEST ifestart
+PASS	ifestart
+END_TEST ifestart
+BEGIN_TEST ifmtt
+PASS	ifmtt
+END_TEST ifmtt
+BEGIN_TEST instfret
+PASS	instfret
+END_TEST instfret
+BEGIN_TEST integ2dt
+PASS	integ2dt
+END_TEST integ2dt
+BEGIN_TEST integt
+PASS	integt
+END_TEST integt
+BEGIN_TEST izakt
+PASS	izakt
+END_TEST izakt
+BEGIN_TEST kayttht
+PASS	kayttht
+END_TEST kayttht
+BEGIN_TEST klaudert
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 43)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 43)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 49)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 49)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 55)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 55)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+PASS	klaudert
+END_TEST klaudert
+BEGIN_TEST locfreqt
+PASS	locfreqt
+END_TEST locfreqt
+BEGIN_TEST loctimet
+PASS	loctimet
+END_TEST loctimet
+BEGIN_TEST margtfrt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	margtfrt
+END_TEST margtfrt
+BEGIN_TEST mexhatt
+PASS	mexhatt
+END_TEST mexhatt
+BEGIN_TEST midpoitt
+PASS	midpoitt
+END_TEST midpoitt
+BEGIN_TEST modulot
+PASS	modulot
+END_TEST modulot
+BEGIN_TEST momftfrt
+PASS	momftfrt
+END_TEST momftfrt
+BEGIN_TEST momttfrt
+PASS	momttfrt
+END_TEST momttfrt
+BEGIN_TEST noisecgt
+PASS	noisecgt
+END_TEST noisecgt
+BEGIN_TEST noisecut
+PASS	noisecut
+END_TEST noisecut
+BEGIN_TEST oddt
+PASS	oddt
+END_TEST oddt
+BEGIN_TEST plotsidt
+PASS	plotsidt
+END_TEST plotsidt
+BEGIN_TEST renyit
+PASS	renyit
+END_TEST renyit
+BEGIN_TEST ridgest
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	ridgest
+END_TEST ridgest
+BEGIN_TEST scalet
+PASS	scalet
+END_TEST scalet
+BEGIN_TEST sgrpdlat
+PASS	sgrpdlat
+END_TEST sgrpdlat
+BEGIN_TEST sigmergt
+PASS	sigmergt
+END_TEST sigmergt
+BEGIN_TEST tfrbertt
+PASS	tfrbertt
+END_TEST tfrbertt
+BEGIN_TEST tfrbjt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrbjt
+END_TEST tfrbjt
+BEGIN_TEST tfrbudt
+For a faster computation, N should be a power of two
+FAIL	tfrbudt		D:\TOOLBOX\tftb-0.3\tests\tfrbudt.m	153	tfrbud test 13 failed
+END_TEST tfrbudt
+BEGIN_TEST tfrcwt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrcwt
+END_TEST tfrcwt
+BEGIN_TEST tfrdflat
+PASS	tfrdflat
+END_TEST tfrdflat
+BEGIN_TEST tfrgabot
+PASS	tfrgabot
+END_TEST tfrgabot
+BEGIN_TEST tfrgrdt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrgrdt
+END_TEST tfrgrdt
+BEGIN_TEST tfrideat
+PASS	tfrideat
+END_TEST tfrideat
+BEGIN_TEST tfrmhst
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrmhst
+END_TEST tfrmhst
+BEGIN_TEST tfrmht
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrmht
+END_TEST tfrmht
+BEGIN_TEST tfrmmcet
+PASS	tfrmmcet
+END_TEST tfrmmcet
+BEGIN_TEST tfrpaget
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrpaget
+END_TEST tfrpaget
+BEGIN_TEST tfrpmht
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrpmht
+END_TEST tfrpmht
+BEGIN_TEST tfrppagt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrppagt
+END_TEST tfrppagt
+BEGIN_TEST tfrpwvt
+For a faster computation, N should be a power of two
+PASS	tfrpwvt
+END_TEST tfrpwvt
+BEGIN_TEST tfrrgabt
+PASS	tfrrgabt
+END_TEST tfrrgabt
+BEGIN_TEST tfrridbt
+PASS	tfrridbt
+END_TEST tfrridbt
+BEGIN_TEST tfrridht
+PASS	tfrridht
+END_TEST tfrridht
+BEGIN_TEST tfrridnt
+PASS	tfrridnt
+END_TEST tfrridnt
+BEGIN_TEST tfrridtt
+PASS	tfrridtt
+END_TEST tfrridtt
+BEGIN_TEST tfrrit
+PASS	tfrrit
+END_TEST tfrrit
+BEGIN_TEST tfrrmsct
+PASS	tfrrmsct
+END_TEST tfrrmsct
+BEGIN_TEST tfrrpmht
+PASS	tfrrpmht
+END_TEST tfrrpmht
+BEGIN_TEST tfrrppat
+PASS	tfrrppat
+END_TEST tfrrppat
+BEGIN_TEST tfrrpwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrpwvt
+END_TEST tfrrpwvt
+BEGIN_TEST tfrrspt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrspt
+END_TEST tfrrspt
+BEGIN_TEST tfrrspwt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrspwt
+END_TEST tfrrspwt
+BEGIN_TEST tfrscalt
+[Warning: HILBERT ignores imaginary part of input.] 
+[> In hilbert>hilbert_ml (line 58)
+In hilbert (line 40)
+In tfrscalt (line 112)
+In run_tests>run_one (line 52)
+In run_tests (line 31)] 
+PASS	tfrscalt
+END_TEST tfrscalt
+BEGIN_TEST tfrspawt
+PASS	tfrspawt
+END_TEST tfrspawt
+BEGIN_TEST tfrspt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrspt
+END_TEST tfrspt
+BEGIN_TEST tfrspwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrspwvt
+END_TEST tfrspwvt
+BEGIN_TEST tfrstftt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrstftt
+END_TEST tfrstftt
+BEGIN_TEST tfruntet
+PASS	tfruntet
+END_TEST tfruntet
+BEGIN_TEST tfrwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrwvt
+END_TEST tfrwvt
+BEGIN_TEST tfrzamt
+PASS	tfrzamt
+END_TEST tfrzamt
+BEGIN_TEST tftb_windowt
+PASS	tftb_windowt
+END_TEST tftb_windowt
+BEGIN_TEST zakt
+PASS	zakt
+END_TEST zakt
+SUMMARY total=0 pass=93 fail=2
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+BEGIN_TEST altest
+PASS	altest
+END_TEST altest
+BEGIN_TEST ambifunt
+For a faster computation, N should be a power of two
+PASS	ambifunt
+END_TEST ambifunt
+BEGIN_TEST ambifuwt
+PASS	ambifuwt
+END_TEST ambifuwt
+BEGIN_TEST amexpo1t
+PASS	amexpo1t
+END_TEST amexpo1t
+BEGIN_TEST amexpo2t
+PASS	amexpo2t
+END_TEST amexpo2t
+BEGIN_TEST amgausst
+PASS	amgausst
+END_TEST amgausst
+BEGIN_TEST amrectt
+PASS	amrectt
+END_TEST amrectt
+BEGIN_TEST amtriant
+PASS	amtriant
+END_TEST amtriant
+BEGIN_TEST anaaskt
+PASS	anaaskt
+END_TEST anaaskt
+BEGIN_TEST anabpskt
+PASS	anabpskt
+END_TEST anabpskt
+BEGIN_TEST anafskt
+PASS	anafskt
+END_TEST anafskt
+BEGIN_TEST anapulst
+PASS	anapulst
+END_TEST anapulst
+BEGIN_TEST anaqpskt
+PASS	anaqpskt
+END_TEST anaqpskt
+BEGIN_TEST anasingt
+PASS	anasingt
+END_TEST anasingt
+BEGIN_TEST anastept
+PASS	anastept
+END_TEST anastept
+BEGIN_TEST atomst
+PASS	atomst
+END_TEST atomst
+BEGIN_TEST disprogt
+PASS	disprogt
+END_TEST disprogt
+BEGIN_TEST dividert
+PASS	dividert
+END_TEST dividert
+BEGIN_TEST dopnoist
+PASS	dopnoist
+END_TEST dopnoist
+BEGIN_TEST dopplert
+PASS	dopplert
+END_TEST dopplert
+BEGIN_TEST dwindowt
+PASS	dwindowt
+END_TEST dwindowt
+BEGIN_TEST fmconstt
+PASS	fmconstt
+END_TEST fmconstt
+BEGIN_TEST fmhypt
+!!! WARNING: signal is undersampled or has negative frequencies
+!!! WARNING: signal is undersampled or has negative frequencies
+PASS	fmhypt
+END_TEST fmhypt
+BEGIN_TEST fmlint
+PASS	fmlint
+END_TEST fmlint
+BEGIN_TEST fmodanyt
+PASS	fmodanyt
+END_TEST fmodanyt
+BEGIN_TEST fmpart
+PASS	fmpart
+END_TEST fmpart
+BEGIN_TEST fmpowert
+PASS	fmpowert
+END_TEST fmpowert
+BEGIN_TEST fmsint
+PASS	fmsint
+END_TEST fmsint
+BEGIN_TEST fmtt
+FAIL	fmtt		D:\TOOLBOX\tftb-0.3\tests\fmtt.m	120	fmt test 6 failed
+END_TEST fmtt
+BEGIN_TEST friedmat
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	friedmat
+END_TEST friedmat
+BEGIN_TEST gdpowert
+PASS	gdpowert
+END_TEST gdpowert
+BEGIN_TEST holdert
+PASS	holdert
+END_TEST holdert
+BEGIN_TEST htlt
+PASS	htlt
+END_TEST htlt
+BEGIN_TEST ifestart
+PASS	ifestart
+END_TEST ifestart
+BEGIN_TEST ifmtt
+PASS	ifmtt
+END_TEST ifmtt
+BEGIN_TEST instfret
+PASS	instfret
+END_TEST instfret
+BEGIN_TEST integ2dt
+PASS	integ2dt
+END_TEST integ2dt
+BEGIN_TEST integt
+PASS	integt
+END_TEST integt
+BEGIN_TEST izakt
+PASS	izakt
+END_TEST izakt
+BEGIN_TEST kayttht
+PASS	kayttht
+END_TEST kayttht
+BEGIN_TEST klaudert
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 43)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 43)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 49)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 49)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 55)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In klauder (line 51)
+In klaudert (line 55)
+In run_tests>run_one (line 52)
+In run_tests (line 31)
+] 
+PASS	klaudert
+END_TEST klaudert
+BEGIN_TEST locfreqt
+PASS	locfreqt
+END_TEST locfreqt
+BEGIN_TEST loctimet
+PASS	loctimet
+END_TEST loctimet
+BEGIN_TEST margtfrt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	margtfrt
+END_TEST margtfrt
+BEGIN_TEST mexhatt
+PASS	mexhatt
+END_TEST mexhatt
+BEGIN_TEST midpoitt
+PASS	midpoitt
+END_TEST midpoitt
+BEGIN_TEST modulot
+PASS	modulot
+END_TEST modulot
+BEGIN_TEST momftfrt
+PASS	momftfrt
+END_TEST momftfrt
+BEGIN_TEST momttfrt
+PASS	momttfrt
+END_TEST momttfrt
+BEGIN_TEST noisecgt
+PASS	noisecgt
+END_TEST noisecgt
+BEGIN_TEST noisecut
+PASS	noisecut
+END_TEST noisecut
+BEGIN_TEST oddt
+PASS	oddt
+END_TEST oddt
+BEGIN_TEST plotsidt
+PASS	plotsidt
+END_TEST plotsidt
+BEGIN_TEST renyit
+PASS	renyit
+END_TEST renyit
+BEGIN_TEST ridgest
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	ridgest
+END_TEST ridgest
+BEGIN_TEST scalet
+PASS	scalet
+END_TEST scalet
+BEGIN_TEST sgrpdlat
+PASS	sgrpdlat
+END_TEST sgrpdlat
+BEGIN_TEST sigmergt
+PASS	sigmergt
+END_TEST sigmergt
+BEGIN_TEST tfrbertt
+PASS	tfrbertt
+END_TEST tfrbertt
+BEGIN_TEST tfrbjt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrbjt
+END_TEST tfrbjt
+BEGIN_TEST tfrbudt
+For a faster computation, N should be a power of two
+FAIL	tfrbudt		D:\TOOLBOX\tftb-0.3\tests\tfrbudt.m	153	tfrbud test 13 failed
+END_TEST tfrbudt
+BEGIN_TEST tfrcwt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrcwt
+END_TEST tfrcwt
+BEGIN_TEST tfrdflat
+PASS	tfrdflat
+END_TEST tfrdflat
+BEGIN_TEST tfrgabot
+PASS	tfrgabot
+END_TEST tfrgabot
+BEGIN_TEST tfrgrdt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrgrdt
+END_TEST tfrgrdt
+BEGIN_TEST tfrideat
+PASS	tfrideat
+END_TEST tfrideat
+BEGIN_TEST tfrmhst
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrmhst
+END_TEST tfrmhst
+BEGIN_TEST tfrmht
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrmht
+END_TEST tfrmht
+BEGIN_TEST tfrmmcet
+PASS	tfrmmcet
+END_TEST tfrmmcet
+BEGIN_TEST tfrpaget
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrpaget
+END_TEST tfrpaget
+BEGIN_TEST tfrpmht
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrpmht
+END_TEST tfrpmht
+BEGIN_TEST tfrppagt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrppagt
+END_TEST tfrppagt
+BEGIN_TEST tfrpwvt
+For a faster computation, N should be a power of two
+PASS	tfrpwvt
+END_TEST tfrpwvt
+BEGIN_TEST tfrrgabt
+PASS	tfrrgabt
+END_TEST tfrrgabt
+BEGIN_TEST tfrridbt
+PASS	tfrridbt
+END_TEST tfrridbt
+BEGIN_TEST tfrridht
+PASS	tfrridht
+END_TEST tfrridht
+BEGIN_TEST tfrridnt
+PASS	tfrridnt
+END_TEST tfrridnt
+BEGIN_TEST tfrridtt
+PASS	tfrridtt
+END_TEST tfrridtt
+BEGIN_TEST tfrrit
+PASS	tfrrit
+END_TEST tfrrit
+BEGIN_TEST tfrrmsct
+PASS	tfrrmsct
+END_TEST tfrrmsct
+BEGIN_TEST tfrrpmht
+PASS	tfrrpmht
+END_TEST tfrrpmht
+BEGIN_TEST tfrrppat
+PASS	tfrrppat
+END_TEST tfrrppat
+BEGIN_TEST tfrrpwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrpwvt
+END_TEST tfrrpwvt
+BEGIN_TEST tfrrspt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrspt
+END_TEST tfrrspt
+BEGIN_TEST tfrrspwt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrrspwt
+END_TEST tfrrspwt
+BEGIN_TEST tfrscalt
+[Warning: HILBERT ignores imaginary part of input.] 
+[> In hilbert>hilbert_ml (line 58)
+In hilbert (line 40)
+In tfrscalt (line 112)
+In run_tests>run_one (line 52)
+In run_tests (line 31)] 
+PASS	tfrscalt
+END_TEST tfrscalt
+BEGIN_TEST tfrspawt
+PASS	tfrspawt
+END_TEST tfrspawt
+BEGIN_TEST tfrspt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrspt
+END_TEST tfrspt
+BEGIN_TEST tfrspwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrspwvt
+END_TEST tfrspwvt
+BEGIN_TEST tfrstftt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrstftt
+END_TEST tfrstftt
+BEGIN_TEST tfruntet
+PASS	tfruntet
+END_TEST tfruntet
+BEGIN_TEST tfrwvt
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+For a faster computation, N should be a power of two
+PASS	tfrwvt
+END_TEST tfrwvt
+BEGIN_TEST tfrzamt
+PASS	tfrzamt
+END_TEST tfrzamt
+BEGIN_TEST tftb_windowt
+PASS	tftb_windowt
+END_TEST tftb_windowt
+BEGIN_TEST zakt
+PASS	zakt
+END_TEST zakt
+SUMMARY total=0 pass=93 fail=2
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true

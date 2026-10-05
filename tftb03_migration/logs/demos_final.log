@@ -1,0 +1,31 @@
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+BEGIN_DEMO tfdemo1
+PASS	tfdemo1
+END_DEMO tfdemo1
+BEGIN_DEMO tfdemo2
+PASS	tfdemo2
+END_DEMO tfdemo2
+BEGIN_DEMO tfdemo3
+PASS	tfdemo3
+END_DEMO tfdemo3
+BEGIN_DEMO tfdemo4
+FAIL	tfdemo4	status=0	tail=% enlightening with regard to interference reduction in the case of | % multicomponent signals. On this example, we notice that the | % smoothed-pseudo-WVD is a particularly convenient and versatile | % candidate. This is due to the fact that we can adapt independently the | % time-width and frequency-width of its weighting function. But in the | % general case, it is interesting to have several distributions at our | % disposal since each one is well adapted to a certain type of | % signal. Besides, for a given signal, as a result of the different | % interference geometries, these distributions offer complementary | % descriptions of this signal. | % | % Press any key to end this demonstration | pause;  | echo off | DEMO_DONE tfdemo4 | Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+END_DEMO tfdemo4
+BEGIN_DEMO tfdemo5
+PASS	tfdemo5
+END_DEMO tfdemo5
+BEGIN_DEMO tfdemo6
+FAIL	tfdemo6	status=0	tail=%""""""""""""""""""""""""""""""""""" | %  This method extracts from any reassigned time-frequency distribution | % (given its displacement operators) some particular sets of curves  | % deduced from the stationary points of their phase. | %  For example, let us extract the ridges from the spectrogram of the previous | % signal : | [tfr,rtfr,hat]=tfrrsp(sig);  | ridges(tfr,hat); | % The result is interesting : apart from some ``gaps'' present in particular | % on the sinusoidal frequency modulation, this method concentrates and | % localizes nearly ideally the signal in the time-frequency plane, even when | % there are two components present at the same time (or at the same | % frequency). | echo off | DEMO_DONE tfdemo6 | Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+END_DEMO tfdemo6
+BEGIN_DEMO tfdemo7
+PASS	tfdemo7
+END_DEMO tfdemo7
+DEMOS_DONE
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true

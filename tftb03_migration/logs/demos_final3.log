@@ -1,0 +1,31 @@
+[Warning: Function input has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+[Warning: Function pause has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)] 
+BEGIN_DEMO tfdemo1
+PASS	tfdemo1
+END_DEMO tfdemo1
+BEGIN_DEMO tfdemo2
+PASS	tfdemo2
+END_DEMO tfdemo2
+BEGIN_DEMO tfdemo3
+PASS	tfdemo3
+END_DEMO tfdemo3
+BEGIN_DEMO tfdemo4
+PASS	tfdemo4
+END_DEMO tfdemo4
+BEGIN_DEMO tfdemo5
+PASS	tfdemo5
+END_DEMO tfdemo5
+BEGIN_DEMO tfdemo6
+PASS	tfdemo6
+END_DEMO tfdemo6
+BEGIN_DEMO tfdemo7
+PASS	tfdemo7
+END_DEMO tfdemo7
+DEMOS_DONE
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
