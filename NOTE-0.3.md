@@ -1,6 +1,6 @@
 m-files updated and verified with R2024a
 Some Mlint cleaning
-Entirely AI generated workflow, DGX Spark with llama.cpp b
+Entirely AI generated workflow, DGX Spark with llama.cpp 0.6.0 Qwen3.8 27b Q8KXL unsloth
 
 All of it is documented in `MIGRATION_PLAN.md` §8, and I just pulled the actual 0.3 test files to ground the details. Here's the full picture.
 
